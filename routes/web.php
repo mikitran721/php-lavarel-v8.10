@@ -14,5 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); //response a view
+    // return env('MY_NAME');
+});
+
+// dinh nghia Route/Endpoint
+Route::get('/users', function () {
+    return 'This is the users page.'; //response a string
+});
+
+//response an array
+Route::get('/foods', function () {
+    return ['poo', 'phoong', 'ben'];
 });
