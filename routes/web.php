@@ -27,3 +27,16 @@ Route::get('/users', function () {
 Route::get('/foods', function () {
     return ['poo', 'phoong', 'ben'];
 });
+
+// response an object
+Route::get('/aboutMe', function () {
+    return response()->json([
+        'name' => 'Poo Phoong',
+        'email' => 'p@gmail.com'
+    ]);
+});
+
+//response another request = redirect
+Route::get('/something', function () {
+    return redirect('/foods');
+});
