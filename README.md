@@ -34,3 +34,5 @@
 -   buid controller & view `products`:
     -   `with` method can only send 1 parameter.
 -   dinh nghia router name
+-   buil PagesController: layout su dung chung
+-

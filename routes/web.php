@@ -4,16 +4,18 @@ use Illuminate\Support\Facades\Route;
 
 // nhung router
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\PagesController;
 
 //define more routes
 Route::get('/', [PagesController::class, 'index']);
+Route::get('/about', [PagesController::class, 'about']);
+
 
 // Goi sung dung ProductsController
 /* Route::get('/products', [
     ProductsController::class,
     'index' //ham goi thuc thi trong controller
 ])->name('products'); */
-
 
 // Route with params
 Route::get('/products111/{productName}', [
