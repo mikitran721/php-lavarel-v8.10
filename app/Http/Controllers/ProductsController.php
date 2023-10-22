@@ -26,9 +26,12 @@ class ProductsController extends Controller
         // return view('products.index', compact('myPhone'));
 
         //send directly
-        return view('products.index', [
+        /* return view('products.index', [
             'myPhone' => $myPhone
-        ]);
+        ]); */
+
+        print_r(route('products'));
+        return view('products.index');
     }
 
     //param with string

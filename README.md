@@ -33,3 +33,4 @@
 -   View Engine mac dinh dung `BLADE`
 -   buid controller & view `products`:
     -   `with` method can only send 1 parameter.
+-   dinh nghia router name

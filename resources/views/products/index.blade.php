@@ -17,7 +17,8 @@
     {{-- @foreach($product as $item)
         <h3>{{ $item }}</h3>
     @endforeach --}}
-    <h3>{{ $product }}</h3>
+    {{-- <h3>{{ $product }}</h3> --}}
+    <a href="{{ route('products') }}">Link to products.</a>
 </body>
 
 </html>

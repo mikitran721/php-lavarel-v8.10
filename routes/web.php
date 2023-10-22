@@ -5,18 +5,21 @@ use Illuminate\Support\Facades\Route;
 // nhung router
 use App\Http\Controllers\ProductsController;
 
+//define more routes
+Route::get('/', [PagesController::class, 'index']);
+
 // Goi sung dung ProductsController
-Route::get('/products', [
+/* Route::get('/products', [
     ProductsController::class,
     'index' //ham goi thuc thi trong controller
-]);
+])->name('products'); */
 
 
 // Route with params
 Route::get('/products111/{productName}', [
     ProductsController::class,
     'detail11'
-]);
+]); //cap ten cho route
 
 // how to validate 'id' only integer
 // Regular Expression
