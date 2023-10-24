@@ -36,4 +36,4 @@
     -   `with` method can only send 1 parameter.
 -   dinh nghia router name
 -   buil PagesController: layout su dung chung
--
+-   some basic commands in Blade (nhung PHP trong view)
