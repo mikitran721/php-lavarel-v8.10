@@ -5,10 +5,12 @@ use Illuminate\Support\Facades\Route;
 // nhung router
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PostsController;
 
 //define more routes
 Route::get('/', [PagesController::class, 'index']);
 Route::get('/about', [PagesController::class, 'about']);
+Route::get('/posts', [PostsController::class, 'index']);
 
 
 // Goi sung dung ProductsController
