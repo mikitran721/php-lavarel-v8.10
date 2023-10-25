@@ -64,7 +64,7 @@
 -   tao CSDL `create database laravelApp;`
 -   su dung `use db-name;` de ket noi su dung DB can lam viec;
 -   Su dung `show tables;` de liet ke ca tables trong DB dang chon.
--   su dung `describe tb-name;` de hien thi structure cua table;
+-   su dung `desc tb-name;` de hien thi structure cua table;
 
 ## CAC BUOC TAO CONTROLLER & MODEL
 

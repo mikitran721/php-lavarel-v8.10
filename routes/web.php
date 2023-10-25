@@ -12,8 +12,10 @@ use App\Http\Controllers\PostsController;
 Route::get('/', [PagesController::class, 'index']);
 Route::get('/about', [PagesController::class, 'about']);
 Route::get('/posts', [PostsController::class, 'index']);
+
 // bo sung FoodsController voi resource - cho day du ca phuong thuc crud
 Route::resource('/foods', FoodsController::class);
+// Route::get('/foods/create', [FoodsController::class, 'create']);
 
 
 // Goi sung dung ProductsController
