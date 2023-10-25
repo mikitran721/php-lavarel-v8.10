@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FoodsController;
 use Illuminate\Support\Facades\Route;
 
 // nhung router
@@ -11,6 +12,8 @@ use App\Http\Controllers\PostsController;
 Route::get('/', [PagesController::class, 'index']);
 Route::get('/about', [PagesController::class, 'about']);
 Route::get('/posts', [PostsController::class, 'index']);
+// bo sung FoodsController voi resource - cho day du ca phuong thuc crud
+Route::resource('/foods', FoodsController::class);
 
 
 // Goi sung dung ProductsController

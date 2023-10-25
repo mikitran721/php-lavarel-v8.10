@@ -68,17 +68,31 @@
 
 ## CAC BUOC TAO CONTROLLER & MODEL
 
+-   Hien thi danh sach cac controller dang co `php artisan route:list`
+
 -   tao controller moi `php artisan make:controller PostsController`
--   bo sung route vao `posts` o file `web.php`
+-   sau khi tao bo doi controller&model thi bo sung route vao `posts` o file `web.php`
 -   bo sung model `php artisan make:model Post`
 -   tao migration `php artisan make:migration create_post`
--   tao dong thoi Model & Migration `php artisan make:model Post -m`
 -
 
 ## CAC BUOC VOI MIGRATION
+
+-   co the: tao dong thoi Model & Migration `php artisan make:model Post -m` thay vi ta rieng model va tao rieng migration
 
 -   B1: tao model & migration
 -   B2: chay migration voi `php artisan migrate`
 -   De huy 1 migration go `php artisan migrate:reset`
 -   Vua xoa vua khoi tao lai -> dung `php artisan migrate:refresh`; tuong duong: delete all tables and migrate.
 -   kiem tra trang thai migrate `php artisan migrate:status`
+
+## FACTORY: du lieu fake
+
+-   Factory is where to generate dummy data; du lieu fake
+-   cau lenh `php artisan make:factory PostFactory`: khong co model kem
+-   cau lenh `php artisan make:factory PostFactory --model=Post`
+-   cau lenh `php artisan tinker` || Tinker is a repl (read-eval-print loop) khi truy cap, go lenh se nhin thay ket qua ngay; co the truy cap thang xuong data cua laravel;
+    -   chay lenh trong tinker `\App\Models\Post::factory()->create();` se tao ra du lieu fake cho Post;
+    -   tac dung khi can du lieu ao cho DB;
+    -   co the dung `\App\Models\Post::factory()->count(2)->create();` de tao 1 luc 2 new data rows;
+-
