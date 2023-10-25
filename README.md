@@ -62,5 +62,23 @@
 -   su dung cau lenh `mysql -u root -p` de ket noi
 -   su dung `show databases;` de hien thi danh sach DB
 -   tao CSDL `create database laravelApp;`
+-   su dung `use db-name;` de ket noi su dung DB can lam viec;
+-   Su dung `show tables;` de liet ke ca tables trong DB dang chon.
+-   su dung `describe tb-name;` de hien thi structure cua table;
+
+## CAC BUOC TAO CONTROLLER & MODEL
+
 -   tao controller moi `php artisan make:controller PostsController`
 -   bo sung route vao `posts` o file `web.php`
+-   bo sung model `php artisan make:model Post`
+-   tao migration `php artisan make:migration create_post`
+-   tao dong thoi Model & Migration `php artisan make:model Post -m`
+-
+
+## CAC BUOC VOI MIGRATION
+
+-   B1: tao model & migration
+-   B2: chay migration voi `php artisan migrate`
+-   De huy 1 migration go `php artisan migrate:reset`
+-   Vua xoa vua khoi tao lai -> dung `php artisan migrate:refresh`; tuong duong: delete all tables and migrate.
+-   kiem tra trang thai migrate `php artisan migrate:status`
