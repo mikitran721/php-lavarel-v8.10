@@ -12,6 +12,9 @@ use App\Models\Category;
 //nhung & su dung Rules/Uppercase - tu tao
 use App\Rules\Uppercase;
 
+//nhung va su dung ValidationRequest tu tao
+use App\Http\Requests\CreateValidationRequest;
+
 class FoodsController extends Controller
 {
     public function index()
@@ -38,7 +41,9 @@ class FoodsController extends Controller
     }
 
     //store function - tao moi du lieu
-    public function store(Request $request)
+    // public function store(Request $request)
+    // thay Request = Request tu tao
+    public function store(CreateValidationRequest $request)
     {
         // dd('This is store function');
         /* $food = new Foods();
@@ -48,12 +53,16 @@ class FoodsController extends Controller
         // dd($request);
 
         //NEED VALIDATE DATE HERE
-        $request->validate([
+        //dong code o duoi ap dung khi su dung request mac dinh cua Laravel
+        /* $request->validate([
             // 'name' => 'required|unique:foods',
             'name' => ['required', new Uppercase], //day la rule tu tao
             'count' => 'required|integer|min:0|max:1000',
             'category_id' => 'required',
-        ]);
+        ]); */
+
+        // ap dung khi su dung RequestValidation tu tao: khong can viet gi vi da khai bao trong Request roi
+        $request->validate();
 
         //if the validation is pass, it will come here
         //Otherwise it will throw an exception (ValidationException)
@@ -80,8 +89,9 @@ class FoodsController extends Controller
     }
 
     // update function
-    public function update(Request $request, $id)
+    public function update(CreateValidationRequest $request, $id)
     {
+        $request->validate();
         $food = Foods::where('id', $id)
             ->update([
                 'name' => $request->input('name'),

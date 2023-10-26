@@ -102,5 +102,10 @@
 ## CRUD
 
 -   can co `@csrf`trong form de gui du lieu len server
--   de tao moi 1 validation su dung `php artisan make:rule Uppercase` se tao 1 rule trong thu muc `Rules`
+
+## VALIDATION
+
+-   de tao moi 1 validation su dung `php artisan make:rule Uppercase` se tao 1 rule trong thu muc `app\Rules`
     -   muon su dung rule moi tao nay can `use` no trong controller can ap dung kiem tra.
+-   de tao validate voi custom request, su dung
+    -   `php artisan make:request CreateValidationRequest` lenh nay se tao 1 file moi voi ten moi tao trong thu muc `app\Http\Requests`
