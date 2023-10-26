@@ -13,5 +13,8 @@ class Foods extends Model
     protected $primaryKey = 'id';
     //if you do not want to use created_at/updated_at? [true=display; false=not.display]
     public $timeStamps = true;
-    protected $dateFormat = 'h:m:s';
+    // protected $dateFormat = 'h:m:s';
+
+    // for edit data
+    protected $fillable = ['name', 'count', 'description'];
 }

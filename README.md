@@ -96,3 +96,7 @@
     -   tac dung khi can du lieu ao cho DB;
     -   co the dung `\App\Models\Post::factory()->count(2)->create();` de tao 1 luc 2 new data rows;
 -
+
+## CRUD
+
+-   can co `@csrf`trong form de gui du lieu len server
