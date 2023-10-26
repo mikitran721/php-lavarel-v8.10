@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use App\Models\Foods;
 use App\Models\Category;
 
+//nhung & su dung Rules/Uppercase - tu tao
+use App\Rules\Uppercase;
+
 class FoodsController extends Controller
 {
     public function index()
@@ -42,12 +45,23 @@ class FoodsController extends Controller
         $food->name = $request->input('name');
         $food->description = $request->input('description');
         $food->count = $request->input('count'); */
-        dd($request);
+        // dd($request);
 
+        //NEED VALIDATE DATE HERE
+        $request->validate([
+            // 'name' => 'required|unique:foods',
+            'name' => ['required', new Uppercase], //day la rule tu tao
+            'count' => 'required|integer|min:0|max:1000',
+            'category_id' => 'required',
+        ]);
+
+        //if the validation is pass, it will come here
+        //Otherwise it will throw an exception (ValidationException)
         $food = Foods::create([
             'name' => $request->input('name'),
             'count' => $request->input('count'),
-            'description' => $request->input('description')
+            'description' => $request->input('description'),
+            'category_id' => $request->input('category_id')
         ]); //ClassName::StaticMethod
 
         //save to DB

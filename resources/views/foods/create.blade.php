@@ -19,5 +19,14 @@
         </div>
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>
+    @if ($errors->any())
+        <div>
+            @foreach ($errors->all() as $err)
+                <p class="text-danger">
+                    {{ $err }}
+                </p>
+            @endforeach
+        </div>
+    @endif
     
 @endsection

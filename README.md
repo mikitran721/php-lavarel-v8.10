@@ -102,3 +102,5 @@
 ## CRUD
 
 -   can co `@csrf`trong form de gui du lieu len server
+-   de tao moi 1 validation su dung `php artisan make:rule Uppercase` se tao 1 rule trong thu muc `Rules`
+    -   muon su dung rule moi tao nay can `use` no trong controller can ap dung kiem tra.
