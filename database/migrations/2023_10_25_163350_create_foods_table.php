@@ -11,12 +11,27 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // one category has many foods
+        Schema::create('categories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->longText('description');
+            $table->timestamps();
+        });
+
         Schema::create('foods', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->integer('count');
             $table->longText('description');
             $table->timestamps();
+            // foreign keys
+            $table->unsignedInteger('category_id');
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('cascade');
+            // ->onDelete('set null');
         });
     }
 

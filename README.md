@@ -45,7 +45,7 @@
 1:41:49 - Insert fake data to MySQL
 1:49:14 - CRUD with Controller and View in Laravel
 1:57:21 - Prevent CSRF attack
-2:21:53 - Add more models and migrate
+2:21:53 - Add more models and migrate / Mo ta quan he 1-n
 2:41:23 - Validate input request
 2:49:21 - Validation by creating a custom Request
 2:52:10 - Upload image to server
@@ -85,6 +85,8 @@
 -   De huy 1 migration go `php artisan migrate:reset`
 -   Vua xoa vua khoi tao lai -> dung `php artisan migrate:refresh`; tuong duong: delete all tables and migrate.
 -   kiem tra trang thai migrate `php artisan migrate:status`
+-   Khi khong chay duoc migrate co the su dung rollback - no se xoa thuc thi migrate gan nhat `php artisan migrate:rollback;`
+    -   can backup data truoc khi thuc hien buoc nay;
 
 ## FACTORY: du lieu fake
 

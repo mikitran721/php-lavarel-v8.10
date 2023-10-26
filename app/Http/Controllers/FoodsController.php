@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 // nhung Foods Model vao controller
 use App\Models\Foods;
+use App\Models\Category;
 
 class FoodsController extends Controller
 {
@@ -29,7 +30,8 @@ class FoodsController extends Controller
     {
         //insert new food
         // dd('Dang o day');
-        return view('foods.create');
+        $categories = Category::all();
+        return view('foods.create')->with('categories', $categories);
     }
 
     //store function - tao moi du lieu
@@ -40,6 +42,7 @@ class FoodsController extends Controller
         $food->name = $request->input('name');
         $food->description = $request->input('description');
         $food->count = $request->input('count'); */
+        dd($request);
 
         $food = Foods::create([
             'name' => $request->input('name'),
@@ -81,5 +84,17 @@ class FoodsController extends Controller
         $food->delete();
         // dd($id);
         return redirect('/foods');
+    }
+
+    // show detail
+    public function show($id)
+    {
+        // dd("this is show detail $id");
+        $food = Foods::find($id);
+        $category = Category::find($food->category_id);
+        $food->category = $category;
+        // dd($food);
+        // dd($food->name);
+        return view('foods.show')->with('food', $food);
     }
 }

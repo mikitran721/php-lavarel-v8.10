@@ -17,4 +17,10 @@ class Foods extends Model
 
     // for edit data
     protected $fillable = ['name', 'count', 'description'];
+
+    // a food belongs to a category
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
