@@ -54,8 +54,32 @@ class FoodsController extends Controller
     }
 
     // edit function
+    public function edit($id)
+    {
+        // dd($id);
+        $food = Foods::find($id);
+        // dd($food);
+        return view('foods.edit')->with('food', $food);
+    }
+
+    // update function
     public function update(Request $request, $id)
     {
-        return view('foods.edit');
+        $food = Foods::where('id', $id)
+            ->update([
+                'name' => $request->input('name'),
+                'count' => $request->input('count'),
+                'description' => $request->input('description')
+            ]);
+        return redirect('/foods');
+    }
+
+    // delete function
+    public function destroy($id)
+    {
+        $food = Foods::find($id);
+        $food->delete();
+        // dd($id);
+        return redirect('/foods');
     }
 }

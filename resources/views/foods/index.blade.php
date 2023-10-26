@@ -11,6 +11,16 @@
             <h3>{{ $food->name }}</h3>
             <h3>{{ $food->description }}</h3>
             <h3>{{ $food->count }}</h3>
+
+            {{-- edit --}}
+            <a href="foods/{{ $food->id }}/edit">Edit</a>
+
+            {{-- delete a food --}}
+            <form action="/foods/{{ $food->id }}" method="post">
+                @csrf
+                @method('delete')
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
         @endforeach
     </ol>
 @endsection
