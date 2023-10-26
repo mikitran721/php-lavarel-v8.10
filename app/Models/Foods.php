@@ -16,7 +16,8 @@ class Foods extends Model
     // protected $dateFormat = 'h:m:s';
 
     // for edit data
-    protected $fillable = ['name', 'count', 'description', 'category_id'];
+    //khi them moi field can cap nhat vao day
+    protected $fillable = ['name', 'count', 'description', 'category_id', 'image_path'];
 
     // a food belongs to a category
     public function category()

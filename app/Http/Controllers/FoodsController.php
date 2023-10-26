@@ -41,10 +41,30 @@ class FoodsController extends Controller
     }
 
     //store function - tao moi du lieu
-    // public function store(Request $request)
+    public function store(Request $request)
     // thay Request = Request tu tao
-    public function store(CreateValidationRequest $request)
+    // public function store(CreateValidationRequest $request)
     {
+        // dd($request->all());
+        // dd($request->file('image')->guessExtension()); //lay duoi file
+        // dd($request->file('image')->getMimeType()); //lay kieu file & duoi file
+        // dd($request->file('image')->getClientOriginalName()); //lay ten & duoi file
+        // dd($request->file('image')->getSize()); //lay dung luong image theo kilobytes
+        // dd($request->file('image')->getError()); //lay loi khi upload file
+        // dd($request->file('image')->isValid()); //la anh hop le = true
+        $request->validate([
+            'name' => 'required',
+            'count' => 'required|integer|min:0|max:200',
+            'description' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048'
+        ]);
+
+        /* client image's name and server's image name must be different */
+        $generatedImageName = 'image' . time() . '-' . $request->name . '.' . $request->image->extension();
+        // dd($generatedImageName);
+        //move img to folder
+        $request->image->move(public_path('images'), $generatedImageName);
+
         // dd('This is store function');
         /* $food = new Foods();
         $food->name = $request->input('name');
@@ -62,7 +82,7 @@ class FoodsController extends Controller
         ]); */
 
         // ap dung khi su dung RequestValidation tu tao: khong can viet gi vi da khai bao trong Request roi
-        $request->validate();
+        // $request->validate();
 
         //if the validation is pass, it will come here
         //Otherwise it will throw an exception (ValidationException)
@@ -70,7 +90,8 @@ class FoodsController extends Controller
             'name' => $request->input('name'),
             'count' => $request->input('count'),
             'description' => $request->input('description'),
-            'category_id' => $request->input('category_id')
+            'category_id' => $request->input('category_id'),
+            'image_path' => $generatedImageName
         ]); //ClassName::StaticMethod
 
         //save to DB

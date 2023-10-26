@@ -65,6 +65,9 @@
 -   su dung `use db-name;` de ket noi su dung DB can lam viec;
 -   Su dung `show tables;` de liet ke ca tables trong DB dang chon.
 -   su dung `desc tb-name;` de hien thi structure cua table;
+-   voi quan he 1-n:
+    -   khi xoa can xoa o bang n truoc;
+    -   khi them can them o bang 1 truoc;
 
 ## CAC BUOC TAO CONTROLLER & MODEL
 
@@ -74,7 +77,7 @@
 -   sau khi tao bo doi controller&model thi bo sung route vao `posts` o file `web.php`
 -   bo sung model `php artisan make:model Post`
 -   tao migration `php artisan make:migration create_post`
--
+-   khi them moi cot/field du lieu can cap nhat vao Model tuong ung/ phuc vu add/edit
 
 ## CAC BUOC VOI MIGRATION
 
@@ -87,6 +90,7 @@
 -   kiem tra trang thai migrate `php artisan migrate:status`
 -   Khi khong chay duoc migrate co the su dung rollback - no se xoa thuc thi migrate gan nhat `php artisan migrate:rollback;`
     -   can backup data truoc khi thuc hien buoc nay;
+-   khi kien truc db hay table thay doi can tao migration de update
 
 ## FACTORY: du lieu fake
 
@@ -109,3 +113,9 @@
     -   muon su dung rule moi tao nay can `use` no trong controller can ap dung kiem tra.
 -   de tao validate voi custom request, su dung
     -   `php artisan make:request CreateValidationRequest` lenh nay se tao 1 file moi voi ten moi tao trong thu muc `app\Http\Requests`
+
+### MOT SO CAU LENH VOI ARTISAN
+
+-   clear services & package `php artisan clear-compiled`
+-   che do dang chay `php artisan up`
+-   che do bao tri `php artisan down`
